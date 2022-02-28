@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+        width: 80%;
+        border: 1px solid #444444;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid #444444;
+        padding: 10px;
+      }
+      .tds {
+        width: 20px;
+        background-color: lightgray;
+        padding: 2px;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+    </style>
+</head>
+<body>
+<h1>Course Register Table of <span style="background-color: skyblue; padding: 3px; border-radius: 10px;">"{{id}}"</span></h1>
+  <table>
+      <thead>
+      <tr>
+          <th>Course</th>
+          <th>Department</th>
+          <th>Professor</th>
+          <th>College</th>
+          <th>register</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for course in courses %}
+          <tr>
+            <td><h3>{{course[0]}}</h3></td>
+            <td>{{course[1]}}</td>
+              <td>{{course[2]}}</td>
+            <td>{{course[3]}}</td>
+            <td><button style="background-color: violet; padding:10px; border-style: none;"><a style="text-decoration: none; color:white" href="{{ url_for('course_register', id=id, course_name=course[0])}}">register</a></button></td>
+          <tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</form>
+</body>
+</html>

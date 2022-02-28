@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+        width: 80%;
+        border: 1px solid #444444;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid #444444;
+        padding: 10px;
+      }
+    </style>
+</head>
+<body>
+<h1>my home - {{id}}</h1>
+<hr>
+<h2>My Course List</h2>
+<table>
+    <thead>
+        <th>Course</th>
+        <th>Department</th>
+        <th>Delete</th>
+    <tbody>
+    {% for my_result in my_results %}
+    <tr>
+        <td>{{my_result[0]}}</td>
+        <td>{{my_result[1]}}</td>
+        <td><button style="background-color: lightseagreen; padding:10px; border-style: none;"><a style="text-decoration: none; color:white" href="{{ url_for('course_delete', id=id, course_name=my_result[0])}}">delete</a></button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<hr>
+<a href="/course?id={{id}}">
+    <button>go to register course</button>
+</a>
+<a href="/total?id={{id}}">
+    <button>total number of courses</button>
+</a>
+<a href="/pwchange?id={{id}}">
+    <button>change password</button>
+</a>
+<a href="/">
+    <button>logout</button>
+</a>
+</body>
+</html>
